@@ -1,0 +1,23 @@
+AWSTemplateFormatVersion : '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Metadata:
+  AWS::ServerlessRepo::Application:
+    Name: my-app
+    Description: hello world
+    Author: Ananya
+    SpdxLicenseId: Apache-2.0
+    HomePageUrl: https://github.com/user1/my-app-project
+    SemanticVersion: 0.0.1
+    SourceCodeUrl: https://github.com/Samarth28/PhotoAlbumWebApp/blob/master/LambdaFunctions/
+Resources:
+  HelloWorldFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: LF1-index-photos.lambda_handler
+      Runtime: python3.7
+      CodeUri: .
+    VpcConfig:
+        SecurityGroupIds:
+          - sg-80263bde
+        SubnetIds:
+          - subnet-0db67d50
