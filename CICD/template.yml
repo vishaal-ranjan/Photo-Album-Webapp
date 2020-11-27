@@ -4,11 +4,11 @@ Metadata:
   AWS::ServerlessRepo::Application:
     Name: my-app
     Description: hello world
-    Author: Ananya
+    Author: Aditya
     SpdxLicenseId: Apache-2.0
     HomePageUrl: https://github.com/user1/my-app-project
     SemanticVersion: 0.0.1
-    SourceCodeUrl: https://github.com/Samarth28/PhotoAlbumWebApp/blob/master/LambdaFunctions/
+    SourceCodeUrl: https://github.com/vishaal-ranjan/Photo-Album-Webapp/tree/main/Lambdas
 Resources:
   HelloWorldFunction:
     Type: AWS::Serverless::Function
@@ -18,6 +18,6 @@ Resources:
       CodeUri: .
     VpcConfig:
         SecurityGroupIds:
-          - sg-80263bde
+          - sg-097acc1b73ec12b80 
         SubnetIds:
-          - subnet-0db67d50
+          - subnet-8900fdb8
