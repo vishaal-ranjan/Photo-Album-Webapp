@@ -124,23 +124,22 @@ function uploadImage(event){
   last_index_quote = encoded.lastIndexOf('"');
   if(fileExt == 'jpg' || fileExt == 'jpeg'){
     encodedStr = encoded.substring(33, last_index_quote);  
-    filetype = "image/"+ fileExt +";base64"
+    filetype = "image/jpeg"+";base64"
   }
   else{
       encodedStr = encoded.substring(32, last_index_quote);
-      filetype = file.type +";base64"
+      filetype = file.type+";base64"
   }
 
   var params = {
-    'key': file.name,
+    'key': fileName,
     'Content-Type': filetype,
     'bucket': 'b2-photo-album'
   };
-
+  console.log("Params are ",params);
   var additionalParams = {
       headers: {
           'Access-Control-Allow-Origin': '*',
-          'Content-Type': filetype,
           'X-Api-Key': 'vykBilU7g63LFaNoUdlDu5KAs8IUJ5pT2BHEJSZa'
       }
   }
@@ -151,8 +150,3 @@ apigClient.uploadBucketKeyPut(params, encodedStr, additionalParams).then(functio
         document.getElementById("uploadResponse").innerHTML = "Failed to upload image";
     });
 }
-
-
-
-
-
